@@ -115,7 +115,7 @@ export const groups = [
   {
     id: 'clase',
     title: 'Proyectos de clase y aprendizaje',
-    description: 'Prácticas y proyectos del ciclo de DAW donde aprendí cada pieza del stack.',
+    description: 'Prácticas y proyectos del Ciclo Superior de DAW donde aprendí cada pieza del stack.',
   },
 ]
 
