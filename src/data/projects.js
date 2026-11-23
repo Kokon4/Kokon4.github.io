@@ -1,7 +1,9 @@
 // Proyectos destacados. `arch` dibuja el mini diagrama de arquitectura de cada tarjeta.
+// `category`: 'personal' (proyectos propios) o 'clase' (proyectos de clase o aprendizaje).
 export const projects = [
   {
     id: 'mtg',
+    category: 'personal',
     title: 'MTG Collector',
     subtitle: 'Gestor de colecciones y mazos de Magic: The Gathering',
     featured: true,
@@ -27,6 +29,7 @@ export const projects = [
   },
   {
     id: 'futbol',
+    category: 'clase',
     title: 'Fútbol Femení',
     subtitle: 'Gestión de una liga de fútbol femenino',
     featured: true,
@@ -48,6 +51,7 @@ export const projects = [
   },
   {
     id: 'deploy',
+    category: 'clase',
     title: 'Despliegue automatizado',
     subtitle: 'De git push a producción sin tocar el servidor',
     featured: false,
@@ -71,6 +75,7 @@ export const projects = [
   },
   {
     id: 'java',
+    category: 'clase',
     title: 'Apunts de Java',
     subtitle: 'Mis apuntes y ejercicios de programación',
     featured: false,
@@ -86,6 +91,31 @@ export const projects = [
     arch: ['Java', 'JDBC', 'Base de datos'],
     repos: [{ label: 'Apuntes', url: 'https://github.com/Kokon4/Apunts-Java' }],
     demo: '',
+  },
+]
+
+// Otros ejercicios y prácticas de clase: se muestran en una lista compacta.
+export const classExercises = [
+  { name: 'Biblioteca (JS)', tech: 'JavaScript', url: 'https://github.com/Kokon4/RepasRecuBiblioJS' },
+  { name: 'Videojocs (JS)', tech: 'JavaScript', url: 'https://github.com/Kokon4/recuJSvideojocs' },
+  { name: 'Cursos (JS)', tech: 'JavaScript', url: 'https://github.com/Kokon4/RecuRepasCourses' },
+  { name: 'Videojocs (Vue)', tech: 'Vue', url: 'https://github.com/Kokon4/videojocsExamenRepas' },
+  { name: 'Teleassistència', tech: 'Vue', url: 'https://github.com/Kokon4/teleasistenciaRepasRecu' },
+  { name: 'Centres educatius', tech: 'Vue', url: 'https://github.com/Kokon4/ExamenRepasCentros' },
+  { name: 'Odin Recipes', tech: 'HTML · CSS', url: 'https://github.com/Kokon4/odin-recipes' },
+  { name: 'Gelateria Batoi', tech: 'Inicios', url: 'https://github.com/Kokon4/Treball-Gelateria-Batoi' },
+]
+
+export const groups = [
+  {
+    id: 'personal',
+    title: 'Proyectos personales',
+    description: 'Ideas propias, diseñadas y construidas de cero fuera de clase.',
+  },
+  {
+    id: 'clase',
+    title: 'Proyectos de clase y aprendizaje',
+    description: 'Prácticas y proyectos del ciclo de DAW donde aprendí cada pieza del stack.',
   },
 ]
 
