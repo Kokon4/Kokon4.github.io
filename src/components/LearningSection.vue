@@ -14,7 +14,7 @@ const timeline = [
   <section id="aprendizaje">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 04. aprendizaje</span>
+        <span class="kicker">// 05. aprendizaje</span>
         <h2>git log de mi formación</h2>
         <p>Cómo he ido construyendo mi stack, commit a commit.</p>
       </div>
