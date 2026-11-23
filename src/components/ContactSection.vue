@@ -18,7 +18,7 @@ async function copyEmail() {
   <section id="contacto">
     <div class="container">
       <div v-reveal class="card box">
-        <span class="kicker">// 05. contacto</span>
+        <span class="kicker">// 06. contacto</span>
         <h2>¿Hablamos?</h2>
         <p>Estoy buscando mi siguiente oportunidad como desarrollador web. Si tienes un puesto, un proyecto o simplemente quieres comentar algo de código, escríbeme.</p>
         <div class="cta">

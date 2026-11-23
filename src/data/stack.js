@@ -57,12 +57,3 @@ export const stack = [
     how: 'docker-compose para entornos, virtual hosts en Nginx, Deployer y GitHub Actions para desplegar con cada push.',
   },
 ]
-
-// Recorrido de una petición: se muestra paso a paso en la sección "Mi stack".
-export const requestFlow = [
-  { step: 'Usuario', detail: 'Hace clic en "Añadir carta al mazo".', tech: 'Navegador' },
-  { step: 'Vue', detail: 'El componente llama a la store de Pinia, que envía POST /api/decks/7/cards con axios.', tech: 'vue' },
-  { step: 'Laravel', detail: 'La ruta pasa por el middleware auth:sanctum y el controlador valida los datos.', tech: 'laravel' },
-  { step: 'MySQL', detail: 'Eloquent inserta la fila en la tabla pivote deck_card.', tech: 'mysql' },
-  { step: 'Respuesta', detail: 'Laravel devuelve JSON 201 y Vue actualiza la interfaz sin recargar.', tech: 'vue' },
-]
