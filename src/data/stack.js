@@ -1,0 +1,68 @@
+// Cada tecnología lleva una explicación corta: la parte "didáctica" del portfolio.
+export const stack = [
+  {
+    id: 'vue',
+    name: 'Vue 3',
+    layer: 'Frontend',
+    color: '#42b883',
+    what: 'Framework de JavaScript para construir interfaces reactivas a base de componentes.',
+    how: 'Uso la Composition API, Pinia para el estado global y Vue Router para la navegación de SPAs.',
+  },
+  {
+    id: 'js',
+    name: 'JavaScript',
+    layer: 'Frontend',
+    color: '#f7df1e',
+    what: 'El lenguaje del navegador. Todo lo interactivo de una web pasa por aquí.',
+    how: 'ES6+, módulos, fetch/axios para consumir APIs y manipulación del DOM sin frameworks.',
+  },
+  {
+    id: 'laravel',
+    name: 'Laravel',
+    layer: 'Backend',
+    color: '#ff2d20',
+    what: 'Framework PHP que organiza el backend en rutas, controladores, modelos y migraciones (MVC).',
+    how: 'APIs REST con Sanctum, Eloquent ORM, validación con Form Requests, Livewire y documentación Swagger.',
+  },
+  {
+    id: 'php',
+    name: 'PHP',
+    layer: 'Backend',
+    color: '#777bb4',
+    what: 'Lenguaje del lado del servidor sobre el que se apoya Laravel.',
+    how: 'PHP 8.2+: tipado, POO, Composer para dependencias y PHPUnit para tests.',
+  },
+  {
+    id: 'mysql',
+    name: 'MySQL',
+    layer: 'Datos',
+    color: '#4479a1',
+    what: 'Base de datos relacional: guarda la información en tablas relacionadas entre sí.',
+    how: 'Diseño de modelos entidad-relación, claves foráneas, relaciones N:M y migraciones versionadas.',
+  },
+  {
+    id: 'java',
+    name: 'Java',
+    layer: 'Fundamentos',
+    color: '#f89820',
+    what: 'Lenguaje orientado a objetos con el que aprendí los fundamentos de la programación.',
+    how: 'POO, herencia, interfaces, excepciones, estructuras dinámicas y acceso a BD con JDBC.',
+  },
+  {
+    id: 'devops',
+    name: 'Docker · Nginx · CI/CD',
+    layer: 'Despliegue',
+    color: '#2496ed',
+    what: 'Lo que hace que una aplicación salga de tu ordenador y llegue a un servidor real.',
+    how: 'docker-compose para entornos, virtual hosts en Nginx, Deployer y GitHub Actions para desplegar con cada push.',
+  },
+]
+
+// Recorrido de una petición: se muestra paso a paso en la sección "Mi stack".
+export const requestFlow = [
+  { step: 'Usuario', detail: 'Hace clic en "Añadir carta al mazo".', tech: 'Navegador' },
+  { step: 'Vue', detail: 'El componente llama a la store de Pinia, que envía POST /api/decks/7/cards con axios.', tech: 'vue' },
+  { step: 'Laravel', detail: 'La ruta pasa por el middleware auth:sanctum y el controlador valida los datos.', tech: 'laravel' },
+  { step: 'MySQL', detail: 'Eloquent inserta la fila en la tabla pivote deck_card.', tech: 'mysql' },
+  { step: 'Respuesta', detail: 'Laravel devuelve JSON 201 y Vue actualiza la interfaz sin recargar.', tech: 'vue' },
+]
