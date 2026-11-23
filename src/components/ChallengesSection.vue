@@ -1,0 +1,207 @@
+<script setup>
+import { platforms, highlights, solutionsRepo } from '../data/challenges.js'
+
+const total = platforms.reduce((n, p) => n + p.solved, 0)
+</script>
+
+<template>
+  <section id="retos">
+    <div class="container">
+      <div v-reveal class="section-head">
+        <span class="kicker">// 04. retos</span>
+        <h2>Entrenando la lógica</h2>
+        <p>Retos de algoritmos y maquetación para mantener la mente en forma. Cada solución explica la idea antes que el código.</p>
+      </div>
+
+      <div v-reveal class="stats">
+        <div class="stat card">
+          <span class="num">{{ total }}</span>
+          <span class="lbl">retos resueltos</span>
+        </div>
+        <div class="stat card">
+          <span class="num">{{ platforms.length }}</span>
+          <span class="lbl">plataformas</span>
+        </div>
+        <div class="stat card status">
+          <span class="dot"></span>
+          <span class="lbl">{{ total ? 'en progreso' : 'arrancando motores…' }}</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article v-for="p in platforms" :key="p.id" v-reveal class="card platform" :style="{ '--c': p.color }">
+          <div class="top">
+            <h3>{{ p.name }}</h3>
+            <span class="chip">{{ p.solved ? `${p.solved} resueltos` : 'próximamente' }}</span>
+          </div>
+          <p class="focus">{{ p.focus }}</p>
+          <p class="why">{{ p.why }}</p>
+          <div class="bar"><span :style="{ width: Math.min(p.solved, 100) + '%' }"></span></div>
+          <a v-if="p.profile" :href="p.profile" target="_blank" rel="noopener" class="link">ver perfil ↗</a>
+        </article>
+      </div>
+
+      <div v-reveal class="card log">
+        <div class="file">retos.log</div>
+        <div class="body">
+          <template v-if="highlights.length">
+            <div v-for="h in highlights" :key="h.url" class="entry">
+              <span class="ok">✔</span>
+              <a :href="h.url" target="_blank" rel="noopener">{{ h.title }}</a>
+              <span class="chip">{{ h.platform }}</span>
+              <span class="chip">{{ h.difficulty }}</span>
+              <span class="chip">{{ h.lang }}</span>
+              <p v-if="h.idea" class="idea">{{ h.idea }}</p>
+            </div>
+          </template>
+          <p v-else class="empty">
+            <span class="ps">$</span> tail -f retos.log<br />
+            <span class="muted">Esperando el primer reto resuelto…</span><span class="caret">▋</span>
+          </p>
+          <a v-if="solutionsRepo" :href="solutionsRepo" target="_blank" rel="noopener" class="btn">ver todas las soluciones</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat {
+  padding: 18px 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.num {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.lbl {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.status {
+  align-items: center;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #febc2e;
+  box-shadow: 0 0 0 4px rgba(254, 188, 46, 0.2);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.platform {
+  padding: 20px;
+  border-top: 3px solid var(--c);
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+h3 {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  margin: 0;
+}
+.focus {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 12px 0 4px;
+}
+.why {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+  flex: 1;
+}
+.bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--c);
+}
+.link {
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.log {
+  overflow: hidden;
+}
+.file {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.body {
+  padding: 18px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+.entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.ok,
+.ps {
+  color: var(--accent);
+}
+.idea {
+  width: 100%;
+  margin: 0 0 0 22px;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+.empty {
+  margin: 0;
+  line-height: 1.8;
+}
+.muted {
+  color: var(--muted);
+}
+.caret {
+  color: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
