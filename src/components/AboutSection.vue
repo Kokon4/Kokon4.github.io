@@ -4,7 +4,7 @@ import { profile } from '../data/profile.js'
 const facts = [
   { k: 'rol', v: profile.role },
   { k: 'ubicación', v: profile.location },
-  { k: 'formación', v: 'Desarrollo de Aplicaciones Web' },
+  { k: 'formación', v: 'Técnico Superior en DAW' },
   { k: 'idiomas', v: 'Castellano · Valencià · English' }, // TODO: confirmar
   { k: 'busco', v: 'Primer/siguiente empleo en desarrollo web' },
 ]
