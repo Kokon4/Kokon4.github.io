@@ -4,8 +4,8 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const links = [
   { href: '#sobre-mi', label: 'sobre_mí' },
   { href: '#stack', label: 'stack' },
-  { href: '#proyectos', label: 'proyectos' },
-  { href: '#retos', label: 'retos' },
+  { href: '#soluciones', label: 'soluciones_ia' },
+  { href: '#proyectos', label: 'a_mano' },
   { href: '#aprendizaje', label: 'aprendizaje' },
   { href: '#contacto', label: 'contacto' },
 ]
