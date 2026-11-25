@@ -2,12 +2,13 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const links = [
-  { href: '#soluciones', label: 'soluciones_ia' },
-  { href: '#proyectos', label: 'a_mano' },
-  { href: '#sobre-mi', label: 'sobre_mí' },
-  { href: '#stack', label: 'stack' },
-  { href: '#aprendizaje', label: 'aprendizaje' },
-  { href: '#contacto', label: 'contacto' },
+  { href: '#soluciones', label: 'Proyectos IA' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#retos', label: 'Retos' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#aprendizaje', label: 'Formación' },
+  { href: '#contacto', label: 'Contacto' },
 ]
 
 const open = ref(false)
@@ -53,7 +54,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
       <nav :class="['links', { open }]" aria-label="Principal">
         <a v-for="l in links" :key="l.href" :href="l.href" @click="open = false">
-          <span class="hash">#</span>{{ l.label }}
+          {{ l.label }}
         </a>
       </nav>
 

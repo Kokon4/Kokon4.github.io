@@ -18,9 +18,8 @@ async function copyEmail() {
   <section id="contacto">
     <div class="container">
       <div v-reveal class="card box">
-        <span class="kicker">// 06. contacto</span>
-        <h2>¿Hablamos?</h2>
-        <p>Estoy buscando mi siguiente oportunidad como desarrollador web. Si tienes un puesto, un proyecto o simplemente quieres comentar algo de código, escríbeme.</p>
+        <h2>Contacto</h2>
+        <p>Disponible para trabajar como desarrollador web.</p>
         <div class="cta">
           <a v-if="profile.email" :href="`mailto:${profile.email}`" class="btn primary">✉ {{ profile.email }}</a>
           <button v-if="profile.email" class="btn" @click="copyEmail">{{ copied ? '✓ copiado' : 'copiar email' }}</button>
@@ -38,11 +37,6 @@ async function copyEmail() {
   padding: clamp(28px, 5vw, 56px);
   text-align: center;
   background: radial-gradient(circle at 50% 0%, var(--glow), transparent 60%), var(--surface);
-}
-.kicker {
-  font-family: var(--mono);
-  color: var(--accent);
-  font-size: 0.85rem;
 }
 h2 {
   font-family: var(--mono);

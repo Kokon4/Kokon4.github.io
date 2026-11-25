@@ -6,14 +6,14 @@ export const stack = [
     layer: 'Frontend',
     color: '#42b883',
     what: 'Framework de JavaScript para construir interfaces reactivas a base de componentes.',
-    how: 'Uso la Composition API, Pinia para el estado global y Vue Router para la navegación de SPAs.',
+    how: 'Composition API, Pinia para el estado global y Vue Router.',
   },
   {
     id: 'js',
     name: 'JavaScript',
     layer: 'Frontend',
     color: '#f7df1e',
-    what: 'El lenguaje del navegador. Todo lo interactivo de una web pasa por aquí.',
+    what: 'Lenguaje de programación del navegador.',
     how: 'ES6+, módulos, fetch/axios para consumir APIs y manipulación del DOM sin frameworks.',
   },
   {
@@ -37,7 +37,7 @@ export const stack = [
     name: 'MySQL',
     layer: 'Datos',
     color: '#4479a1',
-    what: 'Base de datos relacional: guarda la información en tablas relacionadas entre sí.',
+    what: 'Base de datos relacional.',
     how: 'Diseño de modelos entidad-relación, claves foráneas, relaciones N:M y migraciones versionadas.',
   },
   {
@@ -45,7 +45,7 @@ export const stack = [
     name: 'Java',
     layer: 'Fundamentos',
     color: '#f89820',
-    what: 'Lenguaje orientado a objetos con el que aprendí los fundamentos de la programación.',
+    what: 'Lenguaje orientado a objetos.',
     how: 'POO, herencia, interfaces, excepciones, estructuras dinámicas y acceso a BD con JDBC.',
   },
   {
@@ -53,7 +53,7 @@ export const stack = [
     name: 'Docker · Nginx · CI/CD',
     layer: 'Despliegue',
     color: '#2496ed',
-    what: 'Lo que hace que una aplicación salga de tu ordenador y llegue a un servidor real.',
+    what: 'Herramientas para desplegar aplicaciones en servidores.',
     how: 'docker-compose para entornos, virtual hosts en Nginx, Deployer y GitHub Actions para desplegar con cada push.',
   },
 ]
