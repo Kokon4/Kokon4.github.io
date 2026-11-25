@@ -8,7 +8,7 @@ const total = platforms.reduce((n, p) => n + p.solved, 0)
   <section id="retos" class="sub">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 04.1 hecho a mano · retos</span>
+        <span class="kicker">// 02.1 hecho a mano · retos</span>
         <h2>Entrenando la lógica</h2>
         <p>Retos de algoritmos y maquetación para mantener la mente en forma. Cada solución explica la idea antes que el código.</p>
       </div>

@@ -73,8 +73,9 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
 
 <style scoped>
 .hero {
-  padding-top: 72px;
-  min-height: calc(100vh - 64px);
+  padding-top: 56px;
+  padding-bottom: 48px;
+  min-height: min(640px, calc(100vh - 64px));
   display: flex;
   align-items: center;
 }
