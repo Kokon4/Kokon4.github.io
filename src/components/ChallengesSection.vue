@@ -1,46 +1,46 @@
 <script setup>
 import { platforms, highlights, solutionsRepo } from '../data/challenges.js'
-
+import { t, tr } from '../i18n.js'
 </script>
 
 <template>
   <section id="retos" class="sub">
     <div class="container">
       <div v-reveal class="section-head">
-        <h2>Retos de programación</h2>
-        <p>Soluciones a retos de algoritmos y maquetación.</p>
+        <h2>{{ t('challenges.title') }}</h2>
+        <p>{{ t('challenges.intro') }}</p>
       </div>
 
       <div class="grid">
         <article v-for="p in platforms" :key="p.id" v-reveal class="card platform" :style="{ '--c': p.color }">
           <div class="top">
             <h3>{{ p.name }}</h3>
-            <span class="chip">{{ p.solved ? `${p.solved} resueltos` : 'sin empezar' }}</span>
+            <span class="chip">{{ p.solved ? `${p.solved} ${t('challenges.solved')}` : t('challenges.notStarted') }}</span>
           </div>
-          <p class="focus">{{ p.focus }}</p>
-          <p class="why">{{ p.why }}</p>
+          <p class="focus">{{ tr(p.focus) }}</p>
+          <p class="why">{{ tr(p.why) }}</p>
           <div class="bar"><span :style="{ width: Math.min(p.solved, 100) + '%' }"></span></div>
-          <a v-if="p.profile" :href="p.profile" target="_blank" rel="noopener" class="link">ver perfil ↗</a>
+          <a v-if="p.profile" :href="p.profile" target="_blank" rel="noopener" class="link">{{ t('challenges.profile') }}</a>
         </article>
       </div>
 
       <div v-reveal class="card log">
-        <div class="file">Soluciones destacadas</div>
+        <div class="file">{{ t('challenges.highlights') }}</div>
         <div class="body">
           <template v-if="highlights.length">
             <div v-for="h in highlights" :key="h.url" class="entry">
               <span class="ok">✔</span>
-              <a :href="h.url" target="_blank" rel="noopener">{{ h.title }}</a>
+              <a :href="h.url" target="_blank" rel="noopener">{{ tr(h.title) }}</a>
               <span class="chip">{{ h.platform }}</span>
               <span class="chip">{{ h.difficulty }}</span>
               <span class="chip">{{ h.lang }}</span>
-              <p v-if="h.idea" class="idea">{{ h.idea }}</p>
+              <p v-if="h.idea" class="idea">{{ tr(h.idea) }}</p>
             </div>
           </template>
           <p v-else class="empty">
-            <span class="muted">Todavía no hay soluciones publicadas.</span>
+            <span class="muted">{{ t('challenges.none') }}</span>
           </p>
-          <a v-if="solutionsRepo" :href="solutionsRepo" target="_blank" rel="noopener" class="btn">ver todas las soluciones</a>
+          <a v-if="solutionsRepo" :href="solutionsRepo" target="_blank" rel="noopener" class="btn">{{ t('challenges.all') }}</a>
         </div>
       </div>
     </div>

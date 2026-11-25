@@ -1,12 +1,50 @@
 <script setup>
-// Línea temporal de aprendizaje. TODO: ajustar fechas y centro si hace falta.
+import { t, tr } from '../i18n.js'
+
+// Línea temporal de formación. Textos traducibles: { es, en }.
 const timeline = [
-  { when: 'Inicio', title: 'Java', text: 'POO, herencia, interfaces, excepciones y acceso a bases de datos.', tag: 'java' },
-  { when: 'DAW · 1º', title: 'HTML, CSS y JavaScript', text: 'DOM, eventos, fetch y consumo de APIs.', tag: 'js' },
-  { when: 'DAW · 2º', title: 'Laravel', text: 'MVC, Eloquent, migraciones, autenticación, Livewire y APIs REST con Sanctum.', tag: 'laravel' },
-  { when: 'DAW · 2º', title: 'Vue', text: 'Componentes, Composition API, Pinia, Vue Router y tests con Vitest.', tag: 'vue' },
-  { when: 'DAW · 2º', title: 'Despliegue', text: 'Docker, Nginx, Deployer y GitHub Actions.', tag: 'devops' },
-  { when: 'Ahora', title: 'Proyectos propios', text: 'MTG Collector: aplicación full stack con Laravel y Vue.', tag: 'vue' },
+  {
+    when: { es: 'Inicio', en: 'Start' },
+    title: 'Java',
+    text: {
+      es: 'POO, herencia, interfaces, excepciones y acceso a bases de datos.',
+      en: 'OOP, inheritance, interfaces, exceptions and database access.',
+    },
+  },
+  {
+    when: { es: 'DAW · 1º', en: 'DAW · Year 1' },
+    title: { es: 'HTML, CSS y JavaScript', en: 'HTML, CSS and JavaScript' },
+    text: { es: 'DOM, eventos, fetch y consumo de APIs.', en: 'DOM, events, fetch and consuming APIs.' },
+  },
+  {
+    when: { es: 'DAW · 2º', en: 'DAW · Year 2' },
+    title: 'Laravel',
+    text: {
+      es: 'MVC, Eloquent, migraciones, autenticación, Livewire y APIs REST con Sanctum.',
+      en: 'MVC, Eloquent, migrations, authentication, Livewire and REST APIs with Sanctum.',
+    },
+  },
+  {
+    when: { es: 'DAW · 2º', en: 'DAW · Year 2' },
+    title: 'Vue',
+    text: {
+      es: 'Componentes, Composition API, Pinia, Vue Router y tests con Vitest.',
+      en: 'Components, Composition API, Pinia, Vue Router and testing with Vitest.',
+    },
+  },
+  {
+    when: { es: 'DAW · 2º', en: 'DAW · Year 2' },
+    title: { es: 'Despliegue', en: 'Deployment' },
+    text: { es: 'Docker, Nginx, Deployer y GitHub Actions.', en: 'Docker, Nginx, Deployer and GitHub Actions.' },
+  },
+  {
+    when: { es: 'Ahora', en: 'Now' },
+    title: { es: 'Proyectos propios', en: 'Personal projects' },
+    text: {
+      es: 'MTG Collector: aplicación full stack con Laravel y Vue.',
+      en: 'MTG Collector: full stack application with Laravel and Vue.',
+    },
+  },
 ]
 </script>
 
@@ -14,15 +52,15 @@ const timeline = [
   <section id="aprendizaje">
     <div class="container">
       <div v-reveal class="section-head">
-        <h2>Formación</h2>
+        <h2>{{ t('education.title') }}</h2>
       </div>
 
       <ol class="timeline">
-        <li v-for="t in timeline" :key="t.title" v-reveal class="item">
+        <li v-for="(item, i) in timeline" :key="i" v-reveal class="item">
           <div class="card body">
-            <span class="when">{{ t.when }}</span>
-            <h3>{{ t.title }}</h3>
-            <p>{{ t.text }}</p>
+            <span class="when">{{ tr(item.when) }}</span>
+            <h3>{{ tr(item.title) }}</h3>
+            <p>{{ tr(item.text) }}</p>
           </div>
         </li>
       </ol>

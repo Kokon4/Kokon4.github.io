@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { stack } from '../data/stack.js'
+import { t, tr } from '../i18n.js'
 
 const selected = ref(stack[0].id)
 const current = computed(() => stack.find((t) => t.id === selected.value))
@@ -11,35 +12,35 @@ const current = computed(() => stack.find((t) => t.id === selected.value))
   <section id="stack">
     <div class="container">
       <div v-reveal class="section-head">
-        <h2>Mi stack</h2>
-        <p>Tecnologías que uso. Abierto a aprender otras nuevas.</p>
+        <h2>{{ t('stack.title') }}</h2>
+        <p>{{ t('stack.intro') }}</p>
       </div>
 
       <div v-reveal class="explorer">
         <div class="techs" role="tablist">
           <button
-            v-for="t in stack"
-            :key="t.id"
+            v-for="tech in stack"
+            :key="tech.id"
             role="tab"
-            :aria-selected="selected === t.id"
-            :class="['tech', { active: selected === t.id }]"
-            :style="{ '--c': t.color }"
-            @click="selected = t.id"
+            :aria-selected="selected === tech.id"
+            :class="['tech', { active: selected === tech.id }]"
+            :style="{ '--c': tech.color }"
+            @click="selected = tech.id"
           >
             <span class="swatch"></span>
-            <span class="tname">{{ t.name }}</span>
-            <span class="layer">{{ t.layer }}</span>
+            <span class="tname">{{ tech.name }}</span>
+            <span class="layer">{{ tr(tech.layer) }}</span>
           </button>
         </div>
 
         <Transition name="fade" mode="out-in">
           <div :key="current.id" class="card detail" :style="{ '--c': current.color }" role="tabpanel">
-            <span class="chip">{{ current.layer }}</span>
+            <span class="chip">{{ tr(current.layer) }}</span>
             <h3>{{ current.name }}</h3>
-            <p class="label">¿Qué es?</p>
-            <p>{{ current.what }}</p>
-            <p class="label">¿Cómo lo uso?</p>
-            <p>{{ current.how }}</p>
+            <p class="label">{{ t('stack.what') }}</p>
+            <p>{{ tr(current.what) }}</p>
+            <p class="label">{{ t('stack.how') }}</p>
+            <p>{{ tr(current.how) }}</p>
           </div>
         </Transition>
       </div>

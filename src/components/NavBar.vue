@@ -1,14 +1,15 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { t } from '../i18n.js'
 
 const links = [
-  { href: '#soluciones', label: 'Proyectos IA' },
-  { href: '#proyectos', label: 'Proyectos' },
-  { href: '#retos', label: 'Retos' },
-  { href: '#sobre-mi', label: 'Sobre mí' },
-  { href: '#stack', label: 'Stack' },
-  { href: '#aprendizaje', label: 'Formación' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '#soluciones', key: 'nav.ai' },
+  { href: '#proyectos', key: 'nav.projects' },
+  { href: '#retos', key: 'nav.challenges' },
+  { href: '#sobre-mi', key: 'nav.about' },
+  { href: '#stack', key: 'nav.stack' },
+  { href: '#aprendizaje', key: 'nav.education' },
+  { href: '#contacto', key: 'nav.contact' },
 ]
 
 const open = ref(false)
@@ -52,18 +53,18 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
     <div class="container nav-inner">
       <a href="#inicio" class="logo" @click="open = false"><span class="prompt">&gt;_</span> kico.dev</a>
 
-      <nav :class="['links', { open }]" aria-label="Principal">
+      <nav :class="['links', { open }]" aria-label="Main">
         <a v-for="l in links" :key="l.href" :href="l.href" @click="open = false">
-          {{ l.label }}
+          {{ t(l.key) }}
         </a>
       </nav>
 
       <div class="actions">
-        <button class="icon-btn" :aria-label="theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'" @click="toggleTheme">
+        <button class="icon-btn" :aria-label="theme === 'dark' ? t('nav.light') : t('nav.dark')" @click="toggleTheme">
           <svg v-if="theme === 'dark'" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg v-else viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
-        <button class="icon-btn burger" aria-label="Abrir menú" :aria-expanded="open" @click="open = !open">
+        <button class="icon-btn burger" :aria-label="t('nav.menu')" :aria-expanded="open" @click="open = !open">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path v-if="!open" d="M3 6h18M3 12h18M3 18h18"/><path v-else d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>

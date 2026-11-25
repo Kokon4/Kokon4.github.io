@@ -1,5 +1,6 @@
 <script setup>
 import { watch, onBeforeUnmount, ref, nextTick } from 'vue'
+import { t } from '../i18n.js'
 
 // Ventana que "agranda" una tarjeta: se cierra con Esc, con la X o pulsando fuera.
 const props = defineProps({ open: Boolean, label: { type: String, default: 'Detalle' } })
@@ -32,7 +33,7 @@ onBeforeUnmount(() => {
     <Transition name="modal">
       <div v-if="open" class="backdrop" @click.self="emit('close')">
         <div ref="panel" class="panel card" role="dialog" aria-modal="true" :aria-label="label" tabindex="-1">
-          <button class="close" aria-label="Cerrar" @click="emit('close')">✕</button>
+          <button class="close" :aria-label="t('modal.close')" @click="emit('close')">✕</button>
           <slot />
         </div>
       </div>

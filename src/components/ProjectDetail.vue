@@ -1,5 +1,6 @@
 <script setup>
 import { stack } from '../data/stack.js'
+import { t, tr } from '../i18n.js'
 
 const props = defineProps({ project: { type: Object, required: true } })
 
@@ -13,44 +14,44 @@ const accent = colors[0] ?? 'var(--accent)'
       <div class="dots">
         <span v-for="c in colors" :key="c" class="dot" :style="{ background: c }"></span>
       </div>
-      <span v-if="project.featured" class="chip star">★ destacado</span>
+      <span v-if="project.featured" class="chip star">{{ t('projects.featured') }}</span>
     </div>
 
-    <h3>{{ project.title }}</h3>
-    <p class="subtitle">{{ project.subtitle }}</p>
+    <h3>{{ tr(project.title) }}</h3>
+    <p class="subtitle">{{ tr(project.subtitle) }}</p>
 
     <!-- Mini diagrama de arquitectura -->
-    <div class="arch" aria-label="Arquitectura">
-      <template v-for="(node, i) in project.arch" :key="node">
-        <span class="node">{{ node }}</span>
+    <div class="arch" :aria-label="t('projects.architecture')">
+      <template v-for="(node, i) in project.arch" :key="i">
+        <span class="node">{{ tr(node) }}</span>
         <span v-if="i < project.arch.length - 1" class="link" aria-hidden="true">
           <span class="packet"></span>
         </span>
       </template>
     </div>
 
-    <p class="label">Problema</p>
-    <p class="text">{{ project.problem }}</p>
-    <p class="label">Solución</p>
-    <p class="text">{{ project.solution }}</p>
+    <p class="label">{{ t('projects.problem') }}</p>
+    <p class="text">{{ tr(project.problem) }}</p>
+    <p class="label">{{ t('projects.solution') }}</p>
+    <p class="text">{{ tr(project.solution) }}</p>
 
     <div class="chips">
-      <span v-for="t in project.tech" :key="t" class="chip">{{ t }}</span>
+      <span v-for="(tech, n) in project.tech" :key="n" class="chip">{{ tr(tech) }}</span>
     </div>
 
     <div class="more">
-      <p class="label">Decisiones técnicas</p>
+      <p class="label">{{ t('projects.decisions') }}</p>
       <ul>
-        <li v-for="d in project.decisions" :key="d">{{ d }}</li>
+        <li v-for="(d, n) in project.decisions" :key="n">{{ tr(d) }}</li>
       </ul>
-      <p class="label">Qué aprendí</p>
-      <p class="text">{{ project.learned }}</p>
+      <p class="label">{{ t('projects.learned') }}</p>
+      <p class="text">{{ tr(project.learned) }}</p>
     </div>
 
     <div class="links">
       <a v-for="r in project.repos" :key="r.url" :href="r.url" target="_blank" rel="noopener" class="btn">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
-        {{ r.label }}
+        {{ tr(r.label) }}
       </a>
       <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener" class="btn primary">demo ↗</a>
     </div>

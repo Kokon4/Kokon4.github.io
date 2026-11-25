@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { profile } from '../data/profile.js'
+import { t } from '../i18n.js'
 
 const copied = ref(false)
 async function copyEmail() {
@@ -18,11 +19,11 @@ async function copyEmail() {
   <section id="contacto">
     <div class="container">
       <div v-reveal class="card box">
-        <h2>Contacto</h2>
-        <p>Disponible para trabajar como desarrollador web.</p>
+        <h2>{{ t('contact.title') }}</h2>
+        <p>{{ t('contact.intro') }}</p>
         <div class="cta">
           <a v-if="profile.email" :href="`mailto:${profile.email}`" class="btn primary">✉ {{ profile.email }}</a>
-          <button v-if="profile.email" class="btn" @click="copyEmail">{{ copied ? '✓ copiado' : 'copiar email' }}</button>
+          <button v-if="profile.email" class="btn" @click="copyEmail">{{ copied ? t('contact.copied') : t('contact.copy') }}</button>
           <a v-if="profile.linkedin" :href="profile.linkedin" target="_blank" rel="noopener" class="btn">LinkedIn</a>
           <a :href="profile.github" target="_blank" rel="noopener" class="btn">GitHub</a>
           <a v-if="profile.cv" :href="profile.cv" class="btn" download>CV (PDF)</a>
