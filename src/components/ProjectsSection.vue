@@ -17,9 +17,9 @@ const total = computed(() => grouped.value.reduce((n, g) => n + g.items.length, 
   <section id="proyectos">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 03. proyectos</span>
-        <h2>Lo que he construido</h2>
-        <p>Separados entre mis proyectos personales y los que hice en clase. Cada uno explica el problema, la arquitectura, las decisiones técnicas y lo que aprendí: abre “cómo funciona” para ver los detalles.</p>
+        <span class="kicker">// 04. hecho a mano</span>
+        <h2>Proyectos personales, sin IA</h2>
+        <p>Aquí no hay atajos: código escrito, depurado y entendido línea a línea. Es la base que me permite usar la IA con criterio. Abre “cómo funciona” para ver la arquitectura y las decisiones de cada proyecto.</p>
       </div>
 
       <div v-reveal class="filters" role="group" aria-label="Filtrar por tecnología">
@@ -37,7 +37,7 @@ const total = computed(() => grouped.value.reduce((n, g) => n + g.items.length, 
       <template v-for="g in grouped" :key="g.id">
         <div v-if="g.items.length" class="group">
           <div class="group-head">
-            <h3><span class="folder">{{ g.id === 'personal' ? '~/personal' : '~/daw' }}</span> {{ g.title }}</h3>
+            <h3><span class="folder">{{ g.id === 'personal' ? '~/a-mano/personal' : '~/a-mano/daw' }}</span> {{ g.title }}</h3>
             <p>{{ g.description }}</p>
           </div>
           <TransitionGroup name="list" tag="div" :class="['grid', { single: g.items.length === 1 }]">
@@ -50,7 +50,7 @@ const total = computed(() => grouped.value.reduce((n, g) => n + g.items.length, 
 
       <div v-if="active === 'all'" v-reveal class="card exercises">
         <div class="group-head">
-          <h3><span class="folder">~/daw/ejercicios</span> Otras prácticas de clase</h3>
+          <h3><span class="folder">~/a-mano/daw/ejercicios</span> Otras prácticas de clase</h3>
           <p>Ejercicios y exámenes de repaso más pequeños.</p>
         </div>
         <ul>

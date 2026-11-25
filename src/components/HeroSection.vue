@@ -45,7 +45,7 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
         </h1>
         <p class="tagline">{{ profile.tagline }}</p>
         <div class="cta">
-          <a href="#proyectos" class="btn primary">ver proyectos →</a>
+          <a href="#soluciones" class="btn primary">ver proyectos →</a>
           <a :href="profile.github" target="_blank" rel="noopener" class="btn">github.com/Kokon4</a>
           <a v-if="profile.cv" :href="profile.cv" class="btn" download>descargar CV</a>
         </div>

@@ -3,6 +3,7 @@ import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import StackSection from './components/StackSection.vue'
+import BusinessSection from './components/BusinessSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ChallengesSection from './components/ChallengesSection.vue'
 import LearningSection from './components/LearningSection.vue'
@@ -15,6 +16,7 @@ import ContactSection from './components/ContactSection.vue'
     <HeroSection />
     <AboutSection />
     <StackSection />
+    <BusinessSection />
     <ProjectsSection />
     <ChallengesSection />
     <LearningSection />
