@@ -15,7 +15,7 @@ const facts = [
     <div class="container grid">
       <div v-reveal>
         <div class="section-head">
-          <span class="kicker">// 01. sobre mí</span>
+          <span class="kicker">// 03. sobre mí</span>
           <h2>Del modelo de datos al píxel</h2>
         </div>
         <p v-for="(p, i) in profile.about" :key="i" class="para">{{ p }}</p>

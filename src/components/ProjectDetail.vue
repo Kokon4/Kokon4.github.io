@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from 'vue'
 import { stack } from '../data/stack.js'
 
 const props = defineProps({ project: { type: Object, required: true } })
-const open = ref(false)
 
 const colors = props.project.tags.map((t) => stack.find((s) => s.id === t)?.color).filter(Boolean)
 const accent = colors[0] ?? 'var(--accent)'
 </script>
 
 <template>
-  <article class="card project" :style="{ '--c': accent }">
+  <article class="project" :style="{ '--c': accent }">
     <div class="top">
       <div class="dots">
         <span v-for="c in colors" :key="c" class="dot" :style="{ background: c }"></span>
@@ -40,11 +38,7 @@ const accent = colors[0] ?? 'var(--accent)'
       <span v-for="t in project.tech" :key="t" class="chip">{{ t }}</span>
     </div>
 
-    <button class="toggle" :aria-expanded="open" @click="open = !open">
-      <span class="caret" :class="{ rot: open }">▸</span> cómo funciona
-    </button>
-
-    <div v-show="open" class="more">
+    <div class="more">
       <p class="label">Decisiones técnicas</p>
       <ul>
         <li v-for="d in project.decisions" :key="d">{{ d }}</li>
@@ -64,24 +58,8 @@ const accent = colors[0] ?? 'var(--accent)'
 </template>
 
 <style scoped>
-.project {
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s, border-color 0.2s;
-}
-.project::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--c), transparent);
-}
-.project:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--c) 60%, var(--border));
-}
 .top {
+  padding-right: 44px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,22 +141,6 @@ h3 {
   flex-wrap: wrap;
   gap: 6px;
   margin: 16px 0;
-}
-.toggle {
-  font-family: var(--mono);
-  font-size: 0.88rem;
-  background: none;
-  border: none;
-  color: var(--accent);
-  padding: 0;
-  cursor: pointer;
-}
-.caret {
-  display: inline-block;
-  transition: transform 0.2s;
-}
-.caret.rot {
-  transform: rotate(90deg);
 }
 .more {
   margin-top: 14px;

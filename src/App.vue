@@ -14,11 +14,11 @@ import ContactSection from './components/ContactSection.vue'
   <NavBar />
   <main>
     <HeroSection />
-    <AboutSection />
-    <StackSection />
     <BusinessSection />
     <ProjectsSection />
     <ChallengesSection />
+    <AboutSection />
+    <StackSection />
     <LearningSection />
     <ContactSection />
   </main>
