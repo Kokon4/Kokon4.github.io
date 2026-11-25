@@ -53,11 +53,11 @@ export const projects = [
     id: 'deploy',
     category: 'clase',
     title: 'Despliegue automatizado',
-    subtitle: 'De git push a producción sin tocar el servidor',
+    subtitle: 'Despliegue con Nginx, Deployer y GitHub Actions',
     featured: false,
     tags: ['devops', 'laravel'],
     tech: ['Nginx', 'PHP-FPM', 'Deployer', 'GitHub Actions', 'Docker', 'SSH'],
-    problem: 'Desplegar a mano por FTP o SSH es lento y propenso a errores.',
+    problem: 'Desplegar a mano por FTP o SSH es lento y da errores.',
     solution:
       'Servidor Nginx con virtual hosts para un backoffice Laravel y un frontend estático, desplegados con Deployer desde GitHub Actions.',
     decisions: [
@@ -65,7 +65,7 @@ export const projects = [
       'Releases atómicas de Deployer: si algo falla, se vuelve a la versión anterior.',
       'Workflow de GitHub Actions que despliega en cada push a main.',
     ],
-    learned: 'Cómo funciona un servidor web por dentro y la importancia de automatizar y mínimos privilegios.',
+    learned: 'Configuración de un servidor web, automatización del despliegue y permisos mínimos.',
     arch: ['GitHub Actions', 'Deployer · SSH', 'Nginx + PHP'],
     repos: [
       { label: 'laravelDeploy', url: 'https://github.com/Kokon4/laravelDeploy' },
@@ -77,17 +77,17 @@ export const projects = [
     id: 'java',
     category: 'clase',
     title: 'Apunts de Java',
-    subtitle: 'Mis apuntes y ejercicios de programación',
+    subtitle: 'Apuntes y ejercicios de Java',
     featured: false,
     tags: ['java'],
     tech: ['Java', 'POO', 'JDBC'],
-    problem: 'Aprender los fundamentos de la programación de forma ordenada.',
+    problem: 'Apuntes de la asignatura de Programación.',
     solution: 'Repositorio organizado por unidades: bucles, strings, arrays, objetos, herencia, interfaces, excepciones y BD.',
     decisions: [
       'Una carpeta por unidad didáctica, de lo básico a lo avanzado.',
       'Ejercicios prácticos en cada tema, no solo teoría.',
     ],
-    learned: 'Bases sólidas de POO que luego aplico en PHP y JavaScript.',
+    learned: 'Programación orientada a objetos, que después aplico en PHP y JavaScript.',
     arch: ['Java', 'JDBC', 'Base de datos'],
     repos: [{ label: 'Apuntes', url: 'https://github.com/Kokon4/Apunts-Java' }],
     demo: '',
@@ -109,13 +109,13 @@ export const classExercises = [
 export const groups = [
   {
     id: 'personal',
-    title: 'Proyectos personales',
-    description: 'Ideas propias, diseñadas y construidas de cero fuera de clase.',
+    title: 'Personales',
+    description: 'Proyectos propios.',
   },
   {
     id: 'clase',
-    title: 'Proyectos de clase y aprendizaje',
-    description: 'Prácticas y proyectos del Ciclo Superior de DAW donde aprendí cada pieza del stack.',
+    title: 'De clase (DAW)',
+    description: 'Proyectos del ciclo de DAW.',
   },
 ]
 

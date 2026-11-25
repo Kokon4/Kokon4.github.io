@@ -1,38 +1,21 @@
 <script setup>
 import { platforms, highlights, solutionsRepo } from '../data/challenges.js'
 
-const total = platforms.reduce((n, p) => n + p.solved, 0)
 </script>
 
 <template>
   <section id="retos" class="sub">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 02.1 hecho a mano · retos</span>
-        <h2>Entrenando la lógica</h2>
-        <p>Retos de algoritmos y maquetación para mantener la mente en forma. Cada solución explica la idea antes que el código.</p>
-      </div>
-
-      <div v-reveal class="stats">
-        <div class="stat card">
-          <span class="num">{{ total }}</span>
-          <span class="lbl">retos resueltos</span>
-        </div>
-        <div class="stat card">
-          <span class="num">{{ platforms.length }}</span>
-          <span class="lbl">plataformas</span>
-        </div>
-        <div class="stat card status">
-          <span class="dot"></span>
-          <span class="lbl">{{ total ? 'en progreso' : 'arrancando motores…' }}</span>
-        </div>
+        <h2>Retos de programación</h2>
+        <p>Soluciones a retos de algoritmos y maquetación.</p>
       </div>
 
       <div class="grid">
         <article v-for="p in platforms" :key="p.id" v-reveal class="card platform" :style="{ '--c': p.color }">
           <div class="top">
             <h3>{{ p.name }}</h3>
-            <span class="chip">{{ p.solved ? `${p.solved} resueltos` : 'próximamente' }}</span>
+            <span class="chip">{{ p.solved ? `${p.solved} resueltos` : 'sin empezar' }}</span>
           </div>
           <p class="focus">{{ p.focus }}</p>
           <p class="why">{{ p.why }}</p>
@@ -42,7 +25,7 @@ const total = platforms.reduce((n, p) => n + p.solved, 0)
       </div>
 
       <div v-reveal class="card log">
-        <div class="file">retos.log</div>
+        <div class="file">Soluciones destacadas</div>
         <div class="body">
           <template v-if="highlights.length">
             <div v-for="h in highlights" :key="h.url" class="entry">
@@ -55,8 +38,7 @@ const total = platforms.reduce((n, p) => n + p.solved, 0)
             </div>
           </template>
           <p v-else class="empty">
-            <span class="ps">$</span> tail -f retos.log<br />
-            <span class="muted">Esperando el primer reto resuelto…</span><span class="caret">▋</span>
+            <span class="muted">Todavía no hay soluciones publicadas.</span>
           </p>
           <a v-if="solutionsRepo" :href="solutionsRepo" target="_blank" rel="noopener" class="btn">ver todas las soluciones</a>
         </div>
@@ -68,39 +50,6 @@ const total = platforms.reduce((n, p) => n + p.solved, 0)
 <style scoped>
 .sub {
   padding-top: 0;
-}
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.stat {
-  padding: 18px 20px;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-.num {
-  font-family: var(--mono);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-.lbl {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.85rem;
-}
-.status {
-  align-items: center;
-}
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #febc2e;
-  box-shadow: 0 0 0 4px rgba(254, 188, 46, 0.2);
 }
 .grid {
   display: grid;
@@ -176,8 +125,7 @@ h3 {
   gap: 8px;
   margin-bottom: 12px;
 }
-.ok,
-.ps {
+.ok {
   color: var(--accent);
 }
 .idea {
@@ -192,19 +140,5 @@ h3 {
 }
 .muted {
   color: var(--muted);
-}
-.caret {
-  color: var(--accent);
-  animation: blink 1s steps(1) infinite;
-}
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-@media (max-width: 640px) {
-  .stats {
-    grid-template-columns: 1fr;
-  }
 }
 </style>

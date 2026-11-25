@@ -5,7 +5,7 @@ import ProjectTile from './ProjectTile.vue'
 import ModalDialog from './ModalDialog.vue'
 import BusinessDetail from './BusinessDetail.vue'
 
-const statusLabel = { idea: 'próximamente', 'en-desarrollo': 'en desarrollo', terminado: 'terminado' }
+const statusLabel = { idea: 'pendiente', 'en-desarrollo': 'en desarrollo', terminado: 'terminado' }
 const selectedId = ref(null)
 const selected = computed(() => businessCases.find((c) => c.id === selectedId.value))
 </script>
@@ -14,14 +14,13 @@ const selected = computed(() => businessCases.find((c) => c.id === selectedId.va
   <section id="soluciones">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 01. soluciones para empresas</span>
-        <h2>Problemas reales, resueltos con IA</h2>
-        <p>Casos que cualquier empresa reconoce, desarrollados con asistencia de IA. Pulsa una tarjeta para ver el problema, la solución, el impacto y qué parte hice yo y qué parte la IA.</p>
+        <h2>Proyectos con IA</h2>
+        <p>Casos de uso para empresas, desarrollados con asistencia de IA. Pulsa una tarjeta para ver el detalle.</p>
       </div>
 
       <ul v-reveal class="principles">
         <li v-for="p in aiPrinciples" :key="p.title" :title="p.text">
-          <span aria-hidden="true">{{ p.icon }}</span> {{ p.title }}
+          {{ p.title }}
         </li>
       </ul>
 

@@ -2,21 +2,9 @@
 // status: 'idea' | 'en-desarrollo' | 'terminado'. Cuando un caso esté listo,
 // rellena `demo` y `repo`, y cambia `impact` por resultados medidos.
 export const aiPrinciples = [
-  {
-    icon: '🧭',
-    title: 'Yo diseño',
-    text: 'Arquitectura, modelo de datos, endpoints y decisiones técnicas salen de mí, no del modelo.',
-  },
-  {
-    icon: '⚡',
-    title: 'La IA acelera',
-    text: 'Boilerplate, tests, prompts y primeras versiones: lo repetitivo va más rápido.',
-  },
-  {
-    icon: '🔍',
-    title: 'Yo reviso y respondo',
-    text: 'Cada línea se lee, se prueba y se entiende antes de entrar en el repo. Si falla, sé por qué.',
-  },
+  { title: 'Arquitectura y modelo de datos: yo', text: 'Diseño de la arquitectura, la base de datos y la API.' },
+  { title: 'Código repetitivo y tests: IA', text: 'Generación de boilerplate, tests y primeras versiones.' },
+  { title: 'Revisión y pruebas: yo', text: 'Revisión y pruebas de todo el código antes de integrarlo.' },
 ]
 
 export const businessCases = [
@@ -28,7 +16,7 @@ export const businessCases = [
       'El equipo de soporte responde una y otra vez las mismas preguntas, y la información está repartida en PDFs, manuales y wikis.',
     solution:
       'Un chat que responde usando solo la documentación interna (RAG), cita la fuente y deriva a una persona cuando no está seguro.',
-    impact: ['Menos tickets repetitivos', 'Respuestas 24/7', 'Cada respuesta enlaza su fuente'],
+    impact: ['Menos tickets repetitivos', 'Atención 24/7', 'Respuestas con fuente'],
     stack: ['Laravel', 'Vue 3', 'MySQL', 'API de LLM', 'Embeddings'],
     me: 'Modelo de datos de documentos y conversaciones, API en Laravel, panel en Vue y reglas de derivación a humano.',
     ai: 'Búsqueda semántica y redacción de las respuestas.',
@@ -43,7 +31,7 @@ export const businessCases = [
     problem: 'Los correos entrantes se reparten a mano entre departamentos y los urgentes se pierden entre el resto.',
     solution:
       'Cada correo o ticket se clasifica por categoría, prioridad y sentimiento, y se asigna al equipo adecuado en una cola de Laravel.',
-    impact: ['Triage en segundos', 'Urgentes arriba de la cola', 'Métricas por categoría'],
+    impact: ['Clasificación automática', 'Prioridad por urgencia', 'Métricas por categoría'],
     stack: ['Laravel Queues', 'MySQL', 'Vue 3', 'API de LLM'],
     me: 'Colas y jobs, reglas de negocio, panel de revisión manual y métricas.',
     ai: 'Clasificación del texto y extracción de la intención.',
@@ -58,7 +46,7 @@ export const businessCases = [
     problem: 'Administración pasa a mano los datos de cada factura de proveedor a la hoja de cálculo o al ERP.',
     solution:
       'Se sube el PDF, se extraen NIF, fecha, base, IVA y total, se validan y se exportan a CSV o directamente a la base de datos.',
-    impact: ['Menos tecleo manual', 'Validación de importes e IVA', 'Histórico consultable'],
+    impact: ['Menos entrada manual de datos', 'Validación de importes e IVA', 'Histórico consultable'],
     stack: ['Laravel', 'MySQL', 'Vue 3', 'OCR', 'API de LLM'],
     me: 'Flujo de subida, validaciones (los totales cuadran, el NIF es válido), revisión humana y exportación.',
     ai: 'Lectura del documento y extracción de los campos.',
@@ -73,7 +61,7 @@ export const businessCases = [
     problem: 'Los datos de ventas están en la base de datos, pero nadie tiene tiempo de analizarlos cada semana.',
     solution:
       'Un dashboard con gráficas por producto, zona y periodo, y un resumen en lenguaje natural que llega por email cada lunes.',
-    impact: ['Decisiones con datos', 'Alertas de caídas o picos', 'Informe sin trabajo manual'],
+    impact: ['Informe semanal automático', 'Alertas de caídas o picos', 'Métricas por producto y zona'],
     stack: ['Laravel', 'MySQL', 'Vue 3', 'Chart.js', 'API de LLM'],
     me: 'Consultas SQL y agregaciones, API, dashboard en Vue y tarea programada del informe.',
     ai: 'Redacción del resumen a partir de los datos ya calculados.',
@@ -88,7 +76,7 @@ export const businessCases = [
     problem: 'Una tienda con cientos de productos tiene fichas vacías o copiadas del proveedor, y eso perjudica al SEO.',
     solution:
       'A partir de los atributos del producto se generan descripciones y metadatos SEO en varios idiomas, que se revisan antes de publicarse.',
-    impact: ['Catálogo completo', 'Mejor posicionamiento', 'Multidioma (es / ca / en)'],
+    impact: ['Fichas de producto completas', 'Metadatos SEO', 'Multidioma (es / ca / en)'],
     stack: ['Laravel', 'MySQL', 'Vue 3', 'API de LLM'],
     me: 'Importación del catálogo, cola de generación, editor de revisión y control de versiones de cada texto.',
     ai: 'Redacción de las descripciones y traducción.',

@@ -4,11 +4,11 @@ export const profile = {
   role: 'Full Stack Web Developer',
   location: 'Cocentaina, Alicante',
   tagline:
-    'Construyo aplicaciones web de punta a punta: APIs en Laravel, interfaces en Vue y bases de datos MySQL bien diseñadas.',
+    'Desarrollo aplicaciones web con Laravel, PHP, Vue, JavaScript y MySQL.',
   about: [
-    'Soy Técnico Superior en Desarrollo de Aplicaciones Web (DAW). Me gusta entender cómo encaja cada pieza: desde la migración de la base de datos hasta el último componente de la interfaz.',
-    'He trabajado con APIs REST autenticadas, SPAs con Vue 3 y Pinia, aplicaciones multidioma con Livewire y despliegues automatizados con Nginx, Deployer y GitHub Actions.',
-    'Busco mi siguiente oportunidad como desarrollador web, donde seguir aprendiendo y aportar desde el primer día.', // TODO: disponibilidad
+    'Técnico Superior en Desarrollo de Aplicaciones Web (DAW).',
+    'Experiencia con APIs REST en Laravel, SPAs con Vue 3 y Pinia, aplicaciones multidioma con Livewire y despliegues con Nginx, Deployer y GitHub Actions.',
+    'Busco trabajo como desarrollador web.',
   ],
   github: 'https://github.com/Kokon4',
   email: 'kicocarbonell95@gmail.com',

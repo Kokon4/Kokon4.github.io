@@ -1,12 +1,12 @@
 <script setup>
 // Línea temporal de aprendizaje. TODO: ajustar fechas y centro si hace falta.
 const timeline = [
-  { when: 'Inicio', title: 'Fundamentos con Java', text: 'Algoritmia, POO, herencia, interfaces, excepciones y acceso a bases de datos.', tag: 'java' },
-  { when: 'DAW · 1º', title: 'La web por dentro', text: 'HTML, CSS y JavaScript sin frameworks: DOM, eventos, fetch y consumo de APIs.', tag: 'js' },
-  { when: 'DAW · 2º', title: 'Backend con Laravel', text: 'MVC, Eloquent, migraciones, autenticación, Livewire y APIs REST con Sanctum.', tag: 'laravel' },
-  { when: 'DAW · 2º', title: 'Frontend moderno con Vue', text: 'Componentes, Composition API, Pinia, Vue Router y tests con Vitest.', tag: 'vue' },
-  { when: 'DAW · 2º', title: 'Despliegue y DevOps', text: 'Docker, Nginx, Deployer y GitHub Actions: llevar el código a producción.', tag: 'devops' },
-  { when: 'Ahora', title: 'Proyectos propios', text: 'MTG Collector: una app full stack completa, diseñada y construida de cero.', tag: 'vue' },
+  { when: 'Inicio', title: 'Java', text: 'POO, herencia, interfaces, excepciones y acceso a bases de datos.', tag: 'java' },
+  { when: 'DAW · 1º', title: 'HTML, CSS y JavaScript', text: 'DOM, eventos, fetch y consumo de APIs.', tag: 'js' },
+  { when: 'DAW · 2º', title: 'Laravel', text: 'MVC, Eloquent, migraciones, autenticación, Livewire y APIs REST con Sanctum.', tag: 'laravel' },
+  { when: 'DAW · 2º', title: 'Vue', text: 'Componentes, Composition API, Pinia, Vue Router y tests con Vitest.', tag: 'vue' },
+  { when: 'DAW · 2º', title: 'Despliegue', text: 'Docker, Nginx, Deployer y GitHub Actions.', tag: 'devops' },
+  { when: 'Ahora', title: 'Proyectos propios', text: 'MTG Collector: aplicación full stack con Laravel y Vue.', tag: 'vue' },
 ]
 </script>
 
@@ -14,14 +14,11 @@ const timeline = [
   <section id="aprendizaje">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 05. aprendizaje</span>
-        <h2>git log de mi formación</h2>
-        <p>Cómo he ido construyendo mi stack, commit a commit.</p>
+        <h2>Formación</h2>
       </div>
 
       <ol class="timeline">
-        <li v-for="(t, i) in timeline" :key="t.title" v-reveal class="item">
-          <span class="hash">{{ (0xa1f3 + i * 0x1b7).toString(16) }}</span>
+        <li v-for="t in timeline" :key="t.title" v-reveal class="item">
           <div class="card body">
             <span class="when">{{ t.when }}</span>
             <h3>{{ t.title }}</h3>
@@ -55,11 +52,6 @@ const timeline = [
   border-radius: 50%;
   background: var(--bg);
   border: 2px solid var(--accent);
-}
-.hash {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: #febc2e;
 }
 .body {
   padding: 16px 20px;

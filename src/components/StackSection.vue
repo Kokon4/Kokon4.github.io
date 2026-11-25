@@ -11,9 +11,8 @@ const current = computed(() => stack.find((t) => t.id === selected.value))
   <section id="stack">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 04. stack</span>
         <h2>Mi stack</h2>
-        <p>Las tecnologías con las que trabajo a diario (pulsa una para ver cómo la uso). Siempre abierto a aprender nuevas tecnologías.</p>
+        <p>Tecnologías que uso. Abierto a aprender otras nuevas.</p>
       </div>
 
       <div v-reveal class="explorer">

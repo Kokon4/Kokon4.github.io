@@ -6,7 +6,7 @@ const facts = [
   { k: 'ubicación', v: profile.location },
   { k: 'formación', v: 'Técnico Superior en DAW' },
   { k: 'idiomas', v: 'Castellano · Valencià · English' }, // TODO: confirmar
-  { k: 'busco', v: 'Primer/siguiente empleo en desarrollo web' },
+  { k: 'busco', v: 'Empleo como desarrollador web' },
 ]
 </script>
 
@@ -15,8 +15,7 @@ const facts = [
     <div class="container grid">
       <div v-reveal>
         <div class="section-head">
-          <span class="kicker">// 03. sobre mí</span>
-          <h2>Del modelo de datos al píxel</h2>
+          <h2>Sobre mí</h2>
         </div>
         <p v-for="(p, i) in profile.about" :key="i" class="para">{{ p }}</p>
       </div>

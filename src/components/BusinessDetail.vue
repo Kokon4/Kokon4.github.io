@@ -1,6 +1,6 @@
 <script setup>
 defineProps({ c: { type: Object, required: true } })
-const statusLabel = { idea: 'próximamente', 'en-desarrollo': 'en desarrollo', terminado: 'terminado' }
+const statusLabel = { idea: 'pendiente', 'en-desarrollo': 'en desarrollo', terminado: 'terminado' }
 </script>
 
 <template>
@@ -11,12 +11,12 @@ const statusLabel = { idea: 'próximamente', 'en-desarrollo': 'en desarrollo', t
     </div>
     <h3>{{ c.title }}</h3>
 
-    <p class="label">🏢 El problema</p>
+    <p class="label">Problema</p>
     <p class="text">{{ c.problem }}</p>
-    <p class="label">💡 La solución</p>
+    <p class="label">Solución</p>
     <p class="text">{{ c.solution }}</p>
 
-    <p class="label">📈 Impacto {{ c.status === 'terminado' ? '' : 'esperado' }}</p>
+    <p class="label">Impacto {{ c.status === 'terminado' ? '' : 'esperado' }}</p>
     <ul class="impact">
       <li v-for="i in c.impact" :key="i">{{ i }}</li>
     </ul>

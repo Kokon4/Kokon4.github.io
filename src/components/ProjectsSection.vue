@@ -24,9 +24,8 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
   <section id="proyectos">
     <div class="container">
       <div v-reveal class="section-head">
-        <span class="kicker">// 02. hecho a mano</span>
-        <h2>Proyectos personales, sin IA</h2>
-        <p>Código escrito, depurado y entendido línea a línea: la base que me permite usar la IA con criterio. Pulsa un proyecto para ver su arquitectura y decisiones.</p>
+        <h2>Proyectos personales</h2>
+        <p>Desarrollados sin IA. Pulsa un proyecto para ver el detalle.</p>
       </div>
 
       <div v-reveal class="filters" role="group" aria-label="Filtrar por tecnología">
@@ -45,7 +44,6 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
         <template v-for="g in grouped" :key="g.id">
           <div v-if="g.items.length" class="group">
             <h3 class="group-title">
-              <span class="folder">{{ g.id === 'personal' ? '~/a-mano/personal' : '~/a-mano/daw' }}</span>
               {{ g.title }}
             </h3>
             <div class="tiles">
@@ -69,7 +67,7 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
 
       <details v-if="active === 'all'" class="exercises card">
         <summary>
-          <span class="folder">~/a-mano/daw/ejercicios</span> Otras prácticas de clase ({{ classExercises.length }})
+          Otras prácticas de clase ({{ classExercises.length }})
         </summary>
         <ul>
           <li v-for="e in classExercises" :key="e.url">
@@ -123,13 +121,6 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
   font-size: 1rem;
   margin: 0 0 12px;
 }
-.folder {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--accent);
-}
 .tiles {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -147,10 +138,6 @@ summary {
   cursor: pointer;
   font-weight: 600;
   font-size: 0.95rem;
-}
-summary .folder {
-  display: inline;
-  margin-right: 6px;
 }
 ul {
   list-style: none;

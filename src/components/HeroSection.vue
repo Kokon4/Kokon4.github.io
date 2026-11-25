@@ -6,7 +6,7 @@ import { profile } from '../data/profile.js'
 const script = [
   { cmd: 'whoami', out: `${profile.name} — ${profile.role}` },
   { cmd: 'cat stack.txt', out: 'Laravel · PHP · Vue · JavaScript · MySQL · Java' },
-  { cmd: 'git log --oneline -1', out: 'feat: buscando nuevo reto como desarrollador web 🚀' },
+  { cmd: 'cat contacto.txt', out: profile.email },
 ]
 
 const lines = ref([])
@@ -40,8 +40,8 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
       <div class="intro">
         <span class="badge"><span class="dot"></span> Disponible para trabajar</span>
         <h1>
-          Hola, soy <span class="name">{{ profile.name }}</span>.<br />
-          Desarrollo <span class="grad">aplicaciones web</span> de principio a fin.
+          <span class="name">{{ profile.name }}</span><br />
+          Desarrollador <span class="grad">web full stack</span>
         </h1>
         <p class="tagline">{{ profile.tagline }}</p>
         <div class="cta">
