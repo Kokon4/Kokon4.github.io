@@ -1,4 +1,6 @@
 <script setup>
+import { t } from './i18n.js'
+import LangToggle from './components/LangToggle.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -12,6 +14,7 @@ import ContactSection from './components/ContactSection.vue'
 
 <template>
   <NavBar />
+  <LangToggle />
   <main>
     <HeroSection />
     <BusinessSection />
@@ -24,7 +27,7 @@ import ContactSection from './components/ContactSection.vue'
   </main>
   <footer class="footer">
     <div class="container">
-      <span>Hecho con Vue 3 + Vite · desplegado con GitHub Actions</span>
+      <span>{{ t('footer.built') }}</span>
       <span class="mono">© {{ new Date().getFullYear() }} Kico</span>
     </div>
   </footer>

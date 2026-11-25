@@ -10,6 +10,7 @@ defineProps({
   gradient: { type: String, default: '' },
 })
 defineEmits(['open'])
+import { t } from '../i18n.js'
 </script>
 
 <template>
@@ -27,10 +28,10 @@ defineEmits(['open'])
     <h3>{{ title }}</h3>
     <p v-if="subtitle" class="subtitle">{{ subtitle }}</p>
     <div class="chips">
-      <span v-for="t in tags.slice(0, 3)" :key="t" class="chip">{{ t }}</span>
+      <span v-for="tag in tags.slice(0, 3)" :key="tag" class="chip">{{ tag }}</span>
       <span v-if="tags.length > 3" class="chip">+{{ tags.length - 3 }}</span>
     </div>
-    <span class="more">ver detalles <span aria-hidden="true">↗</span></span>
+    <span class="more">{{ t('tile.more') }} <span aria-hidden="true">↗</span></span>
   </button>
 </template>
 

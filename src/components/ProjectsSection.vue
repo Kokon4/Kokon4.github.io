@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { t, tr } from '../i18n.js'
 import { projects, filters, groups, classExercises } from '../data/projects.js'
 import { stack } from '../data/stack.js'
 import ProjectTile from './ProjectTile.vue'
@@ -24,11 +25,11 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
   <section id="proyectos">
     <div class="container">
       <div v-reveal class="section-head">
-        <h2>Proyectos personales</h2>
-        <p>Desarrollados sin IA. Pulsa un proyecto para ver el detalle.</p>
+        <h2>{{ t('projects.title') }}</h2>
+        <p>{{ t('projects.intro') }}</p>
       </div>
 
-      <div v-reveal class="filters" role="group" aria-label="Filtrar por tecnología">
+      <div v-reveal class="filters" role="group" :aria-label="t('projects.filter')">
         <button
           v-for="f in filters"
           :key="f.id"
@@ -36,7 +37,7 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
           :aria-pressed="active === f.id"
           @click="active = f.id"
         >
-          {{ f.label }}
+          {{ tr(f.label) }}
         </button>
       </div>
 
@@ -44,18 +45,18 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
         <template v-for="g in grouped" :key="g.id">
           <div v-if="g.items.length" class="group">
             <h3 class="group-title">
-              {{ g.title }}
+              {{ tr(g.title) }}
             </h3>
             <div class="tiles">
               <ProjectTile
                 v-for="p in g.items"
                 :key="p.id"
-                :title="p.title"
-                :subtitle="p.subtitle"
+                :title="tr(p.title)"
+                :subtitle="tr(p.subtitle)"
                 :colors="colorsOf(p)"
-                :badge="p.featured ? '★ destacado' : ''"
+                :badge="p.featured ? t('projects.featured') : ''"
                 badge-class="star"
-                :tags="p.tech"
+                :tags="tr(p.tech)"
                 @open="selectedId = p.id"
               />
             </div>
@@ -63,22 +64,22 @@ const selected = computed(() => projects.find((p) => p.id === selectedId.value))
         </template>
       </div>
 
-      <p v-if="!total" class="empty">No hay proyectos con este filtro.</p>
+      <p v-if="!total" class="empty">{{ t('projects.empty') }}</p>
 
       <details v-if="active === 'all'" class="exercises card">
         <summary>
-          Otras prácticas de clase ({{ classExercises.length }})
+          {{ t('projects.exercises') }} ({{ classExercises.length }})
         </summary>
         <ul>
           <li v-for="e in classExercises" :key="e.url">
-            <a :href="e.url" target="_blank" rel="noopener">{{ e.name }}</a>
-            <span class="chip">{{ e.tech }}</span>
+            <a :href="e.url" target="_blank" rel="noopener">{{ tr(e.name) }}</a>
+            <span class="chip">{{ tr(e.tech) }}</span>
           </li>
         </ul>
       </details>
     </div>
 
-    <ModalDialog :open="!!selected" :label="selected?.title" @close="selectedId = null">
+    <ModalDialog :open="!!selected" :label="tr(selected?.title)" @close="selectedId = null">
       <ProjectDetail v-if="selected" :project="selected" />
     </ModalDialog>
   </section>

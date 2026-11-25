@@ -1,13 +1,8 @@
 <script setup>
 import { profile } from '../data/profile.js'
+import { t, tr } from '../i18n.js'
 
-const facts = [
-  { k: 'rol', v: profile.role },
-  { k: 'ubicación', v: profile.location },
-  { k: 'formación', v: 'Técnico Superior en DAW' },
-  { k: 'idiomas', v: 'Castellano · Valencià · English' }, // TODO: confirmar
-  { k: 'busco', v: 'Empleo como desarrollador web' },
-]
+const facts = profile.facts
 </script>
 
 <template>
@@ -15,15 +10,15 @@ const facts = [
     <div class="container grid">
       <div v-reveal>
         <div class="section-head">
-          <h2>Sobre mí</h2>
+          <h2>{{ t('about.title') }}</h2>
         </div>
-        <p v-for="(p, i) in profile.about" :key="i" class="para">{{ p }}</p>
+        <p v-for="(p, i) in profile.about" :key="i" class="para">{{ tr(p) }}</p>
       </div>
 
       <div v-reveal class="card code">
         <div class="file">about.json</div>
         <pre><code><span class="p">{</span>
-<template v-for="(f, i) in facts" :key="f.k">  <span class="k">"{{ f.k }}"</span><span class="p">:</span> <span class="s">"{{ f.v }}"</span><span class="p">{{ i < facts.length - 1 ? ',' : '' }}</span>
+<template v-for="(f, i) in facts" :key="i">  <span class="k">"{{ tr(f.k) }}"</span><span class="p">:</span> <span class="s">"{{ tr(f.v) }}"</span><span class="p">{{ i < facts.length - 1 ? ',' : '' }}</span>
 </template><span class="p">}</span></code></pre>
       </div>
     </div>

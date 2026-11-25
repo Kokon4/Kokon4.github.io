@@ -1,43 +1,43 @@
 <script setup>
+import { t, tr } from '../i18n.js'
 defineProps({ c: { type: Object, required: true } })
-const statusLabel = { idea: 'pendiente', 'en-desarrollo': 'en desarrollo', terminado: 'terminado' }
 </script>
 
 <template>
   <article class="case">
     <div class="top">
-      <span class="chip sector">{{ c.sector }}</span>
-      <span :class="['chip', 'status', c.status]">{{ statusLabel[c.status] }}</span>
+      <span class="chip sector">{{ tr(c.sector) }}</span>
+      <span :class="['chip', 'status', c.status]">{{ t(`status.${c.status}`) }}</span>
     </div>
-    <h3>{{ c.title }}</h3>
+    <h3>{{ tr(c.title) }}</h3>
 
-    <p class="label">Problema</p>
-    <p class="text">{{ c.problem }}</p>
-    <p class="label">Solución</p>
-    <p class="text">{{ c.solution }}</p>
+    <p class="label">{{ t('ai.problem') }}</p>
+    <p class="text">{{ tr(c.problem) }}</p>
+    <p class="label">{{ t('ai.solution') }}</p>
+    <p class="text">{{ tr(c.solution) }}</p>
 
-    <p class="label">Impacto {{ c.status === 'terminado' ? '' : 'esperado' }}</p>
+    <p class="label">{{ c.status === 'terminado' ? t('ai.impact') : t('ai.impactExpected') }}</p>
     <ul class="impact">
-      <li v-for="i in c.impact" :key="i">{{ i }}</li>
+      <li v-for="(i, n) in c.impact" :key="n">{{ tr(i) }}</li>
     </ul>
 
     <div class="split">
       <div>
-        <span class="who me">yo</span>
-        <p>{{ c.me }}</p>
+        <span class="who me">{{ t('ai.me') }}</span>
+        <p>{{ tr(c.me) }}</p>
       </div>
       <div>
-        <span class="who ai">IA</span>
-        <p>{{ c.ai }}</p>
+        <span class="who ai">{{ t('ai.ai') }}</span>
+        <p>{{ tr(c.ai) }}</p>
       </div>
     </div>
 
     <div class="chips">
-      <span v-for="t in c.stack" :key="t" class="chip">{{ t }}</span>
+      <span v-for="(s, n) in c.stack" :key="n" class="chip">{{ tr(s) }}</span>
     </div>
 
     <div v-if="c.demo || c.repo" class="links">
-      <a v-if="c.repo" :href="c.repo" target="_blank" rel="noopener" class="btn">código</a>
+      <a v-if="c.repo" :href="c.repo" target="_blank" rel="noopener" class="btn">{{ t('ai.code') }}</a>
       <a v-if="c.demo" :href="c.demo" target="_blank" rel="noopener" class="btn primary">demo ↗</a>
     </div>
   </article>

@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { t, tr } from '../i18n.js'
 import { profile } from '../data/profile.js'
 
 // Líneas de la "terminal" del hero. Se escriben carácter a carácter.
 const script = [
   { cmd: 'whoami', out: `${profile.name} — ${profile.role}` },
   { cmd: 'cat stack.txt', out: 'Laravel · PHP · Vue · JavaScript · MySQL · Java' },
-  { cmd: 'cat contacto.txt', out: profile.email },
+  { cmd: 'cat contact.txt', out: profile.email },
 ]
 
 const lines = ref([])
@@ -38,20 +39,20 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
   <section id="inicio" class="hero">
     <div class="container grid">
       <div class="intro">
-        <span class="badge"><span class="dot"></span> Disponible para trabajar</span>
+        <span class="badge"><span class="dot"></span> {{ t('hero.available') }}</span>
         <h1>
           <span class="name">{{ profile.name }}</span><br />
-          Desarrollador <span class="grad">web full stack</span>
+          {{ t('hero.role1') }} <span class="grad">{{ t('hero.role2') }}</span>
         </h1>
-        <p class="tagline">{{ profile.tagline }}</p>
+        <p class="tagline">{{ tr(profile.tagline) }}</p>
         <div class="cta">
-          <a href="#soluciones" class="btn primary">ver proyectos →</a>
+          <a href="#soluciones" class="btn primary">{{ t('hero.cta') }}</a>
           <a :href="profile.github" target="_blank" rel="noopener" class="btn">github.com/Kokon4</a>
-          <a v-if="profile.cv" :href="profile.cv" class="btn" download>descargar CV</a>
+          <a v-if="profile.cv" :href="profile.cv" class="btn" download>{{ t('hero.cv') }}</a>
         </div>
       </div>
 
-      <div class="terminal card" aria-label="Terminal de presentación">
+      <div class="terminal card" :aria-label="t('hero.terminal')">
         <div class="bar">
           <span class="d r"></span><span class="d y"></span><span class="d g"></span>
           <span class="title">kico@portfolio: ~</span>
